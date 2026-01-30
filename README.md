@@ -10,8 +10,7 @@ Skills are markdown files that give AI agents specialized knowledge and workflow
 
 | Skill | Description | Triggers |
 |-------|-------------|----------|
-
-*More skills coming soon!*
+| [fix-types](skills/fix-types/SKILL.md) | Interactively fix type checking issues in Python code | `/fix-types`, working on mypy errors |
 
 ## Installation
 
