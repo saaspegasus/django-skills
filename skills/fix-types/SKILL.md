@@ -1,7 +1,9 @@
 ---
 name: fix-types
 description: Interactively fix any type checking issues in Python code
-allowed-tools: []
+allowed-tools: [
+    Bash(uv run mypy *),
+]
 ---
 
 ## Your task
@@ -31,6 +33,23 @@ choices = list(field.choices)  # type: ignore[arg-type]
 ```
 
 **Why:** `cast()` explicitly documents what type you expect, making the code more readable and maintainable. It also doesn't silence other potential errors on the same line.
+
+#### Prefer proper errors over assertions for null checks
+
+When adding null checks to satisfy mypy, prefer raising proper exceptions over using `assert`:
+
+```python
+# Preferred - proper error handling
+if obj.related_field is None:
+    raise ValueError("Object must have a related field")
+result = obj.related_field.some_method()
+
+# Avoid - assertions can be disabled with -O flag
+assert obj.related_field is not None
+result = obj.related_field.some_method()
+```
+
+**Why:** Assertions can be disabled in production with `python -O`, making them unreliable for runtime validation. Proper exceptions ensure the check always runs and provides better error handling.
 
 #### When using `type: ignore`, add a comment
 
