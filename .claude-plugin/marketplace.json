@@ -1,0 +1,25 @@
+{
+  "name": "django-skills",
+  "owner": {
+    "name": "SaaS Pegasus",
+    "url": "https://www.saaspegasus.com"
+  },
+  "metadata": {
+    "description": "AI agent skills for Django projects",
+    "version": "1.0.0",
+    "repository": "https://github.com/saaspegasus/django-skills"
+  },
+  "plugins": [
+    {
+      "name": "django-skills",
+      "description": "Skills for Django development: fix type errors, upgrade JavaScript and Python dependencies",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/fix-types",
+        "./skills/upgrade-js-deps",
+        "./skills/upgrade-python-deps"
+      ]
+    }
+  ]
+}
