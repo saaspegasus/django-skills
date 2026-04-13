@@ -15,7 +15,8 @@ Upgrade all Python dependencies and verify nothing is broken.
 
 ### Step 1: Upgrade the lock file
 
-Run `uv lock --upgrade` to upgrade all dependencies to their latest compatible versions.
+Run `uv lock --upgrade --exclude-newer "7 days"` to upgrade all dependencies to their latest compatible
+versions (with a 7-day cooldown to mitigate supply-chain attacks).
 
 Review the output for any resolution errors. If there are conflicts, report them to the user
 and ask how to proceed before continuing.
